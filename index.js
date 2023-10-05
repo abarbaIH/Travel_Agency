@@ -2,9 +2,16 @@
 import express from 'express'
 // Importamos el router que hemos configurado en el index de routes
 import router from './routes/index.js'
+// importamos la configuracion de la base de datos
+import db from './config/db.js'
 
 // express contiene una funcion para ejecutar express que lo asignamos a la variable app
 const app = express()
+
+// Conectar la Base de Datos
+db.authenticate()
+    .then(() => console.log("Base de Datos conectada"))
+    .catch(error => console.log(error))
 
 // Definir puerto
 const port = process.env.PORT || 4000
