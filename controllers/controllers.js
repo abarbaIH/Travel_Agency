@@ -74,7 +74,7 @@ const guardarTestimonio = async (req, res) => {
 
     if (errores.length > 0) {
 
-        // Consultar testimonios exxistentes
+        // Consultar testimonios exxistentes para que la vista que se carga cuando hay error 
         const testimonios = await Testimonio.findAll()
         //Mostrar errores en la vista
         res.render('testimonios', {
