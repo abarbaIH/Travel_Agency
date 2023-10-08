@@ -4,7 +4,8 @@ import {
     paginaNosotros,
     paginaViajes,
     paginaTestimonios,
-    paginaDetalleViaje
+    paginaDetalleViaje,
+    guardarTestimonio
 } from '../controllers/controllers.js'
 
 const router = express.Router()
@@ -18,5 +19,7 @@ router.get('/viajes', paginaViajes)
 router.get('/viajes/:id_slug', paginaDetalleViaje)
 
 router.get('/testimonios', paginaTestimonios)
+
+router.post('/testimonios', guardarTestimonio)
 
 export default router
