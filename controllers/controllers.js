@@ -1,10 +1,28 @@
 import { Viaje } from "../models/Viaje.js"
 import { Testimonio } from "../models/Testimonio.js"
 
-const paginaInicio = (req, res) => {
-    res.render("inicio", {
-        pagina: "Inicio" // variables que pasamos a la vista
-    })
+const paginaInicio = async (req, res) => {
+
+    // Consultar 3 viajes del modelo viaje y también 3 testimonios
+    // esto lo hacemos así y no haciendo dos awaits para que pueda ejecutar las dos al mismo tiempo
+
+    const promiseDB = []
+    promiseDB.push(Viaje.findAll({ limit: 3 }))
+    promiseDB.push(Testimonio.findAll({ limit: 3 }))
+
+    try {
+        const resultado = await Promise.all(promiseDB)
+
+        res.render("inicio", {
+            pagina: "Inicio", // variables que pasamos a la vista
+            clase: 'home',
+            viajes: resultado[0],
+            testimonios: resultado[1]
+        })
+    } catch (error) {
+        console.log(error)
+    }
+
 }
 
 const paginaNosotros = (req, res) => {

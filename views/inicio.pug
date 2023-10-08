@@ -1,7 +1,31 @@
 extends ./layout/index
 
+block slider 
+    .slider 
+        h1 Rio de Janeiro 
+        em aventura
+
 block contenido
     main.container.mt-5
-        .row 
-            h1=pagina
+        h2.text-center.mb-5 Sobre Nosotros
+        .row.mb-5 
+            .col-md-6
+                p Lorem ipsum dolor sit amet. Donec semper tortor at nibh. Sed augue ligula, ut lacinia purus viverra a. Pellentesque luctus diam neque, in eleifend nulla fringilla quis. Phasellus blandit eget dui nec molestie. Vestibulum imperdiet, ex nec semper lacinia, ipsum dui purus, fermentum erat diam at dui. 
+                p Aliquam suscipit metus non sollicitudin vulputate. Integer consectetur erat nec purus elementum ultricies. Praesent sit amet neque est. Suspendisse in condimentum lorem. Integer mollis nisl bibendum, sollicitudin elit in, congue dui. 
+            .col-md-6
+                img(src="/img/inicio_nosotros.jpg", alt="imagen Nosotros de Inicio", class="img-fluid")
+
+        include ./layout/bloqueViajes
     
+    .descuento 
+        .container 
+            .row 
+                .col-md-6 
+                    .contenido 
+                        h3 5% de descuento 
+                        p.titulo Vaije a Canada 
+                        p.fecha 20 de Diciembre de 2023 - 27 de Diciembre de 2023
+                        p.precio 2.500 €
+    .container 
+        h2.mt-5.text-center Testimonios
+        include ./layout/bloqueTestimonios
