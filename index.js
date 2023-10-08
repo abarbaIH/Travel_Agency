@@ -4,7 +4,11 @@ import express from 'express'
 import router from './routes/index.js'
 // importamos la configuracion de la base de datos
 import db from './config/db.js'
+//importamos dotenv para la variable de entorno de flyio para deployar
+import dotenv from 'dotenv/config'
 
+
+const flyApiToken = process.env.FLY_API_TOKEN;
 
 // express contiene una funcion para ejecutar express que lo asignamos a la variable app
 const app = express()
